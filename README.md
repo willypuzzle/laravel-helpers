@@ -1,4 +1,4 @@
-# General Helpers by Willypuzzle
+# Laravel General Helpers by Willypuzzle
 
 In order to setup:
  * Install with composer: **composer require willypuzzle/laravel-helpers**
