@@ -32,6 +32,7 @@ class Database {
 
             }
         }
+        return $idsArray;
     }
 
     public function test(){
