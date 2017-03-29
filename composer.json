@@ -1,0 +1,29 @@
+{
+    "name": "willypuzzle/laravel-helpers",
+    "description": "A General Laravel Helpers package.",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/willypuzzle/laravel-helpers/issues",
+        "source": "https://github.com/willypuzzle/laravel-helpers"
+    },
+    "authors": [
+        {
+            "name": "Domenico Rizzo",
+            "email": "domenico.rizzo@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "illuminate/support": "5.4.*",
+        "illuminate/database": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "Willypuzzle\\Helpers\\": ""
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev"
+}
