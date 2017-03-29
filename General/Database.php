@@ -22,7 +22,14 @@ class Database {
                     $idsArray[] = $id;
                 }
             }else{
-                throw new WrongTypeException(substr(serialize($m), 0, 25)."... is not a instance of ".Model::class);
+                if(is_array($m)){
+                    throw new WrongTypeException("Array element is an array and not an instance of ".Model::class);
+                }if(is_object($m)){
+                    throw new WrongTypeException("Array element is an instance of ".get_class($m)." and not an instance of ".Model::class);
+                }else{
+                    throw new WrongTypeException("Array element ($m) is primitive type and not an instance of ".Model::class);
+                }
+
             }
         }
     }
