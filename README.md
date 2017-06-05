@@ -17,6 +17,6 @@ The helpers are grouped in facades divided by namespaces.
    * is($develop, $testing, $production), it says if it belongs to any of that environment for example is(true, true, false) says it is develop or testing environment.
    
  In order to test the enviroment it uses the following values of APP_ENV:
- * Develop: 'dev', 'develop', 'developing'
- * Testing: 'test'. 'testing, 'staging'
+ * Develop: 'local', '''dev', 'develop', 'developing'
+ * Testing: 'test'. 'testing, 'staging', 'stage'
  * Production: Other any values

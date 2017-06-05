@@ -23,12 +23,12 @@ class Environment {
 
     public function isTesting()
     {
-        return $this->app->environment('testing') || $this->app->environment('staging') || $this->app->environment('test');
+        return $this->app->environment('testing') || $this->app->environment('staging') || $this->app->environment('test') || $this->app->environment('stage');
     }
 
     public function isDevelop()
     {
-        return $this->app->environment('dev') || $this->app->environment('develop') || $this->app->environment('developing');
+        return $this->app->environment('local') || $this->app->environment('dev') || $this->app->environment('develop') || $this->app->environment('developing');
     }
 
     /**
