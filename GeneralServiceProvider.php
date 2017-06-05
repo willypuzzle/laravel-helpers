@@ -37,7 +37,7 @@ class GeneralServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerEnvorinment()
+    protected function registerEnvironment()
     {
         $this->app->singleton('willypuzzle.helpers.general.environment', function ($app) {
             return new Environment($app);
