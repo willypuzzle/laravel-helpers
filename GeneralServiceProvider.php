@@ -4,6 +4,7 @@ namespace Willypuzzle\Helpers;
 
 use Illuminate\Support\ServiceProvider;
 use Willypuzzle\Helpers\General\Database;
+use Willypuzzle\Helpers\General\Environment;
 
 
 class GeneralServiceProvider extends ServiceProvider
@@ -16,6 +17,7 @@ class GeneralServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerDatabase();
+        $this->registerEnvironment();
     }
 
     /**
@@ -27,6 +29,18 @@ class GeneralServiceProvider extends ServiceProvider
     {
         $this->app->singleton('willypuzzle.helpers.general.database', function ($app) {
             return new Database($app);
+        });
+    }
+
+    /**
+     * Register the authenticator services.
+     *
+     * @return void
+     */
+    protected function registerEnvorinment()
+    {
+        $this->app->singleton('willypuzzle.helpers.general.environment', function ($app) {
+            return new Environment($app);
         });
     }
 }
