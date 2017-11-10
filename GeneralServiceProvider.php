@@ -19,6 +19,7 @@ class GeneralServiceProvider extends ServiceProvider
     {
         $this->registerDatabase();
         $this->registerEnvironment();
+        $this->registerArrays();
     }
 
     /**
