@@ -21,12 +21,21 @@ class Arrays {
      * @param array $b
      * @return bool
      */
-    public function arrayEqual($a, $b) {
-        return (
-            is_array($a)
-            && is_array($b)
-            && count($a) == count($b)
-            && array_diff($a, $b) === array_diff($b, $a)
-        );
+    public function arrayEqual(array $a, array $b)
+    {
+        return (count($a) == count($b) && array_diff($a, $b) === array_diff($b, $a));
+    }
+
+    /**
+     * Check if $contained is a subset of $container
+     *
+     * @param array $container
+     * @param array $contained
+     *
+     * @return bool
+     */
+    public function isSubset(array $container, array $contained)
+    {
+        return count($container) >= count($contained) && count(array_intersect($container, $contained)) == count($contained);
     }
 }
