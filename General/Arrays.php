@@ -11,6 +11,12 @@ class Arrays {
     }
 
     /**
+     * This method return true if the arrays have the same values indipentently of their order
+     *
+     * for example:
+     *
+     * [0, 1] and [1, 0] return  true
+     *
      * @param array $a
      * @param array $b
      * @return bool
