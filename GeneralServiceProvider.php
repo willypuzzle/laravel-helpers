@@ -5,6 +5,7 @@ namespace Willypuzzle\Helpers;
 use Illuminate\Support\ServiceProvider;
 use Willypuzzle\Helpers\General\Database;
 use Willypuzzle\Helpers\General\Environment;
+use Willypuzzle\Helpers\General\Arrays;
 
 
 class GeneralServiceProvider extends ServiceProvider
@@ -21,7 +22,7 @@ class GeneralServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the authenticator services.
+     * Register the database services.
      *
      * @return void
      */
@@ -33,7 +34,7 @@ class GeneralServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the authenticator services.
+     * Register the environment services.
      *
      * @return void
      */
@@ -41,6 +42,18 @@ class GeneralServiceProvider extends ServiceProvider
     {
         $this->app->singleton('willypuzzle.helpers.general.environment', function ($app) {
             return new Environment($app);
+        });
+    }
+
+    /**
+     * Register the arrays services.
+     *
+     * @return void
+     */
+    protected function registerArrays()
+    {
+        $this->app->singleton('willypuzzle.helpers.general.arrays', function ($app) {
+            return new Arrays($app);
         });
     }
 }
