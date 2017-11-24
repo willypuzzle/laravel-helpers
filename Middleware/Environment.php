@@ -39,7 +39,7 @@ class Environment
                 }else if ($this->redirect){
                     return redirect($this->redirect);
                 }else{
-                    return 'Environment doesn\'t allow this action';
+                    return response()->make('Environment doesn\'t allow this action', HttpCodes::FORBIDDEN);
                 }
             }
         }
