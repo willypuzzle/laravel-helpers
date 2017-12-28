@@ -1,9 +1,9 @@
 <?php
-namespace Willypuzzle\Helpers\Facades\General;
+namespace Willypuzzle\Helpers\Facades\Validation;
 
 use Illuminate\Support\Facades\Facade;
 
-class Arrays extends Facade {
+class Json extends Facade {
 
     /**
      * Get the registered name of the component.
