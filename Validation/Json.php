@@ -17,21 +17,23 @@ class Json {
      * @throws \Willypuzzle\Helpers\Exceptions\Validation\WrongSchema
      */
 
-    public function validate($json, $schema)
+    public function validate($json, $schema, $checkSchema = false)
     {
-        $metaSchema = \League\JsonReference\Dereferencer::draft4()->dereference('http://json-schema.org/draft-04/schema#');
+        if($checkSchema){
+            $metaSchema = \League\JsonReference\Dereferencer::draft4()->dereference('http://json-schema.org/draft-04/schema#');
 
-        $metaValidator  = new \League\JsonGuard\Validator($schema, $metaSchema);
+            $metaValidator  = new \League\JsonGuard\Validator($schema, $metaSchema);
 
-        if ($metaValidator->fails()) {
-            // Invalid schema
-            $errorsString = '';
-            $errors = $metaValidator->errors();
-            foreach ($errors as $error){
-                $errorsString .= $error->getMessage().'| ';
+            if ($metaValidator->fails()) {
+                // Invalid schema
+                $errorsString = '';
+                $errors = $metaValidator->errors();
+                foreach ($errors as $error){
+                    $errorsString .= $error->getMessage().'| ';
+                }
+                rtrim($errorsString, ', ');
+                throw new \Willypuzzle\Helpers\Exceptions\Validation\WrongSchema($errorsString);
             }
-            rtrim($errorsString, ', ');
-            throw new \Willypuzzle\Helpers\Exceptions\Validation\WrongSchema($errorsString);
         }
 
         $validator     = new \League\JsonGuard\Validator((object)$json, $schema);
