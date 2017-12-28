@@ -28,8 +28,9 @@ class Json {
             $errorsString = '';
             $errors = $metaValidator->errors();
             foreach ($errors as $error){
-                $errorsString .= $error->getMessage();
+                $errorsString .= $error->getMessage().'| ';
             }
+            rtrim($errorsString, ', ')
             throw new \Willypuzzle\Helpers\Exceptions\Validation\WrongSchema($errorsString);
         }
 
@@ -39,8 +40,9 @@ class Json {
             $errorsString = '';
             $errors = $validator->errors();
             foreach ($errors as $error){
-                $errorsString .= $error->getMessage();
+                $errorsString .= $error->getMessage().'| ';
             }
+            rtrim($errorsString, ', ')
             throw new \Willypuzzle\Helpers\Exceptions\Validation\WrongJson($errorsString);
         }
     }
