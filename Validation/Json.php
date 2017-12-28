@@ -30,7 +30,7 @@ class Json {
             foreach ($errors as $error){
                 $errorsString .= $error->getMessage().'| ';
             }
-            rtrim($errorsString, ', ')
+            rtrim($errorsString, ', ');
             throw new \Willypuzzle\Helpers\Exceptions\Validation\WrongSchema($errorsString);
         }
 
@@ -42,7 +42,7 @@ class Json {
             foreach ($errors as $error){
                 $errorsString .= $error->getMessage().'| ';
             }
-            rtrim($errorsString, ', ')
+            rtrim($errorsString, ', ');
             throw new \Willypuzzle\Helpers\Exceptions\Validation\WrongJson($errorsString);
         }
     }
