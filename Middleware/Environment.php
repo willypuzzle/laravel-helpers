@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Willypuzzle\Helpers\Facades\General\Environment as EnvironmentFacade;
 use Willypuzzle\Helpers\Contracts\HttpCodes;
 
-class Environment
+class Environment extends AdvancedMiddleware
 {
 
     protected $redirect = null;
@@ -22,7 +22,7 @@ class Environment
      * @param  string|null  $environment
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, $environment = null)
+    public function body(Request $request, Closure $next, $environment = null)
     {
         if($environment === null){
             $environment = [true, false, false];
