@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Willypuzzle\Helpers\General\Database;
 use Willypuzzle\Helpers\General\Environment;
 use Willypuzzle\Helpers\General\Arrays;
+use Willypuzzle\Helpers\General\Traits;
 use Willypuzzle\Helpers\Validation\Json;
 
 
@@ -22,6 +23,7 @@ class GeneralServiceProvider extends ServiceProvider
         $this->registerEnvironment();
         $this->registerArrays();
         $this->registerValidationJson();
+        $this->registerTraits();
     }
 
     /**
@@ -57,6 +59,18 @@ class GeneralServiceProvider extends ServiceProvider
     {
         $this->app->singleton('willypuzzle.helpers.general.arrays', function ($app) {
             return new Arrays($app);
+        });
+    }
+
+    /**
+     * Register the arrays services.
+     *
+     * @return void
+     */
+    protected function registerTraits()
+    {
+        $this->app->singleton('willypuzzle.helpers.general.traits', function ($app) {
+            return new Traits($app);
         });
     }
 
