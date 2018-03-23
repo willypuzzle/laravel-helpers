@@ -8,4 +8,5 @@ interface HttpCodes {
     const NOT_FOUND = 404;
     const OK = 200;
     const UNAUTHORIZED = 401;
+    const INTERNAL_SERVER_ERROR = 500;
 }
