@@ -3,6 +3,7 @@
 namespace Willypuzzle\Helpers\General;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Willypuzzle\Helpers\Exceptions\WrongTypeException;
 
 class Database {
@@ -37,5 +38,22 @@ class Database {
 
     public function test(){
         echo "test";
+    }
+
+    /**
+     * Get the model associated with a custom polymorphic type.
+     *
+     * @param  string  $alias
+     * @return string|null
+     */
+    public static function getMorphedModelInverse($className)
+    {
+        foreach (Relation::$morphMap as $key => $value){
+            if($value == $className){
+                return $key;
+            }
+        }
+
+        return $className;
     }
 }
