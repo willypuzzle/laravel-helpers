@@ -27,5 +27,12 @@
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Willypuzzle\\Helpers\\GeneralServiceProvider"
+            ]
+        }
+    }
 }
