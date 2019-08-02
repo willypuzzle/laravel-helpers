@@ -18,7 +18,7 @@
         "illuminate/database": ">=5.4.0",
         "league/json-guard": "^1.0",
         "league/json-reference": "^1.0",
-        "lodash-php/lodash-php": "dev-master"
+        "lodash-php/lodash-php": "^0.0.6"
     },
     "autoload": {
         "psr-4": {
