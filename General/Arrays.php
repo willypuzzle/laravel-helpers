@@ -66,6 +66,10 @@ class Arrays {
             return $default;
         }
 
+        if(count(explode('.', $path)) == 1){
+            return $array[$path] ?? $default;
+        }
+
         $fn = property($path);
 
         try {
