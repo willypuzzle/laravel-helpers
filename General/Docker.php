@@ -8,29 +8,36 @@ use Closure;
 class Docker
 {
     /**
-     * @param string $name
+     * @param string $field
      * @param $default
-     * @return string|mixed
+     * @param $secretFilename
+     * @return mixed|null
      */
-    static private function secretStatic(string $name, $default)
+    static private function secretStatic(string $field, $default, $secretFilename)
     {
-        $file = '/run/secrets/' . $name;
+        $file = '/run/secrets/' . $secretFilename;
         if(!file_exists($file)){
             return $default;
         }
 
-        return trim(file_get_contents($file));
+        $fileContent = json_decode(trim(file_get_contents($file)), true);
+        if(!$fileContent){
+            return $default;
+        }
+
+        return Arrays::get($fileContent, $field, $default);
     }
 
     /**
-     * @param string $name
+     * @param string $field
      * @param null $default
+     * @param string $secretFileName
      * @return Closure
      */
-    static function secret(string $name, $default = null): Closure
+    static function secret(string $field, $default = null, string $secretFileName = 'laravel-secret'): Closure
     {
-        return function () use ($name, $default) {
-            return self::secretStatic($name, $default);
+        return function () use ($field, $default, $secretFileName) {
+            return self::secretStatic($field, $default, $secretFileName);
         };
     }
 }
