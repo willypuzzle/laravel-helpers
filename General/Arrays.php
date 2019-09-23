@@ -73,7 +73,8 @@ class Arrays {
         $fn = property($path);
 
         try {
-            return $fn($array);
+            $value = $fn($array);
+            return  $value === null ? $default : $value;
         }catch (UnexpectedTypeException $ex) {
             return $default;
         }
